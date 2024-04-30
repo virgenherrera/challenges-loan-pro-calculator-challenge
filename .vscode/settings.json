@@ -1,0 +1,55 @@
+{
+  "codemetrics.basics.CodeLensHiddenUnder": 7,
+  "codemetrics.basics.EnabledForHTML": false,
+  "codemetrics.basics.MetricsForClassDeclarationsToggled": false,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "emmet.triggerExpansionOnTab": true,
+  "errorLens.delay": 2e3,
+  "errorLens.messageTemplate": "$severity: $message",
+  "eslint.format.enable": true,
+  "eslint.options": {
+    "overrideConfigFile": ".eslintrc.json",
+    "ignore": true
+  },
+  "eslint.validate": [
+    "javascript",
+    "json",
+    "typescript"
+  ],
+  "files.eol": "\n",
+  "git.autofetch": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "npm.packageManager": "pnpm",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[html]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "cSpell.words": [
+    "dtos",
+    "linebreak",
+    "metatype",
+    "nestjs",
+    "paren",
+  ]
+}

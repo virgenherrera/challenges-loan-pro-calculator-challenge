@@ -1,0 +1,13 @@
+{
+  "name": "loan-pro-calculator-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "license": "UNLICENSED",
+  "scripts": {
+    "test": "pnpm run -r test",
+    "build": "pnpm run -r build",
+    "dev": "pnpm run -r dev",
+    "cleanup": "pnpm run -r cleanup",
+    "bumpDependencies": "pnpm run -r bumpDependencies"
+  }
+}
