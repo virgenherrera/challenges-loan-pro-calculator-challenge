@@ -2,6 +2,7 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 
+import { RegisterDto } from "../../auth/dto";
 import { Logger } from '../../common/decorators';
 import { NotFound } from "../../common/exceptions";
 import { User } from "../../entities";
@@ -26,7 +27,7 @@ export class UsersService {
     return user;
   }
 
-  async create(dto: User): Promise<User> {
+  async create(dto: User | RegisterDto): Promise<User> {
     this.logger.log(`creating new User with email "${dto.email}".`);
 
     return this.usersRepository.create(dto);

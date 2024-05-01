@@ -5,7 +5,7 @@ import {
   Type,
 } from '@nestjs/common';
 import { ClassTransformOptions, plainToClass } from 'class-transformer';
-import { validate, ValidationError, ValidatorOptions } from 'class-validator';
+import { ValidationError, ValidatorOptions, validate } from 'class-validator';
 import { BadRequest } from '../exceptions';
 
 @Injectable()
@@ -24,12 +24,20 @@ export class DtoValidation implements PipeTransform {
     return new DtoValidation();
   }
 
+  static get strictPipe() {
+    return new DtoValidation({
+      ...DtoValidation.defaultValidatorOptions,
+      skipMissingProperties: false,
+      forbidUnknownValues: true,
+    });
+  }
+
   private skipTypes: Type[] = [Array, Boolean, Number, Object, String];
 
   constructor(
     private validatorOptions = DtoValidation.defaultValidatorOptions,
     private classTransformOptions = DtoValidation.defaultClassTransformOptions,
-  ) {}
+  ) { }
 
   async transform(value: any, { metatype }: ArgumentMetadata) {
     return this.isPrimitiveType(metatype)
@@ -59,8 +67,8 @@ export class DtoValidation implements PipeTransform {
       const constraints = validationError.children?.length
         ? this.parseErrors(validationError.children, propertyName)
         : Object.values(validationError.constraints).map(constraint =>
-            constraint.replace(validationError.property, propertyName),
-          );
+          constraint.replace(validationError.property, propertyName),
+        );
 
       return [...accConstraints, ...constraints];
     }, initialValue);
