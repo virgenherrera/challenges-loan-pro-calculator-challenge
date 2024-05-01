@@ -3,8 +3,8 @@ import { ApiTags } from "@nestjs/swagger";
 
 import { Logger } from "../../common/decorators";
 import { DtoValidation } from "../../common/pipes";
-import { AuthRegisterDocs } from "../docs";
-import { RegisterDto } from "../dto";
+import { AuthLoginDocs, AuthRegisterDocs } from "../docs";
+import { LoginDto, LoginResponseDto, RegisterDto } from "../dto";
 import { AuthService } from "../services";
 
 
@@ -33,4 +33,14 @@ export class AuthController {
     }
   }
 
+  @AuthLoginDocs()
+  async login(@Body() loginDto: LoginDto): Promise<LoginResponseDto> {
+    this.logger.log(`Login attempt for user: ${loginDto.email}`);
+
+    const data = await this.authService.login(loginDto);
+
+    this.logger.verbose(`Login successful for user: ${loginDto.email}`);
+
+    return data;
+  }
 }
