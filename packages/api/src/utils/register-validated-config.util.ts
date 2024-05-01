@@ -10,7 +10,7 @@ export function registerValidatedConfig<T>(
       excludeExtraneousValues: true,
       enableImplicitConversion: true,
     });
-    const errors = validateSync(instance as object, {
+    const errors = validateSync(instance as any, {
       whitelist: true,
       forbidNonWhitelisted: true,
     });
