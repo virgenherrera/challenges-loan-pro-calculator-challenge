@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "license": "UNLICENSED",
+  "engines": {
+    "node": ">=22.0.0 <23",
+    "pnpm": "9.0.6"
+  },
   "scripts": {
     "test": "pnpm run -r test",
     "build": "pnpm run -r build",
